@@ -54,9 +54,17 @@ py -3 -m venv .venv
 
 Activation is unnecessary, so PowerShell's activation-script policy does not get in the way.
 
-## Linux setup
+## Linux/macOS: easiest start
 
-Install Python and the venv package with your distribution's package manager first (for Ubuntu/Debian: `sudo apt install python3 python3-venv`). Then:
+Install Python **3.10+** with `python3` available on PATH. On Linux, install venv support with your distribution's package manager if needed (for Ubuntu/Debian: `sudo apt install python3 python3-venv`). Then run:
+
+```bash
+./start.sh
+```
+
+The launcher creates `.venv`, installs `requirements.txt`, and starts TailChat, just like `start.bat`. Keep the terminal open and stop with **Ctrl+C**. You can also run it with `bash start.sh` if executable permissions were lost when extracting the project.
+
+### Manual setup
 
 ```bash
 python3 -m venv .venv
@@ -155,6 +163,7 @@ On Linux with UFW, an equivalent example is `sudo ufw allow in on tailscale0 to 
 ```text
 app.py                    Flask routes, Socket.IO events, validation, SQLite
 start.bat                 Windows entry point
+start.sh                  Linux/macOS entry point
 install-python.ps1        Optional official Python installer helper
 requirements.txt          Runtime packages
 requirements-dev.txt      Integration-test packages
